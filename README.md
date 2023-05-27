@@ -102,16 +102,26 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
-
-
-### PROGRAM 
-/*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+~~~
+Developed by: JP.REXON
+RegisterNumber: 212222050048
+~~~
+
+~~~
+### PROGRAM SR
+module srflipflop(s,r,clk,q,qbar);
+input s,r,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin 
+q<=s|(~r&q);
+qbar<=r|(~s&~q);
+end
+endmodule
+~~~
 
 
 
@@ -120,6 +130,7 @@ RegisterNumber:
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+![rtl srf (2)](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/3ffb2528-136b-43bb-9ff9-2b230d54e6d1)
 
 
 
@@ -130,11 +141,77 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+![td srf (2)](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/1ce63d74-0f11-46d8-89c7-b390df532ae2)
+
+
+~~~
+### PROGRAM JK
+module jkflipflop(j,k,clk,q,qbar);
+input j,k,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
+endmodule
+~~~
+
+### RTL LOGIC FOR FLIPFLOPS 
+![td jkff](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/3d50919a-ce8b-4c7e-8691-f8f62b54c449)
+
+
+### TIMING DIGRAMS FOR FLIP FLOPS 
+![rtl jkf](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/02a971cb-7bb5-47dc-982c-ea276c88ef23)
+
+
+~~~
+### PROGRAM T
+module tflipflop(clk,t,q,qbar);
+input clk,t;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=(t&~q)|(~t&q);
+qbar<=~q;
+end 
+endmodule
+~~~
+
+### RTL LOGIC FOR FLIPFLOPS 
+![rtl tff](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/db578eb7-dc3e-4048-aa78-176568ee551b)
 
 
 
+### TIMING DIGRAMS FOR FLIP FLOPS 
 
+![td tff](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/21b3f306-6621-4ecf-970d-961243249317)
+
+
+~~~
+### PROGRAM D
+module dflipflop(d,clk,q,qbar);
+input d,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=d;
+qbar<=~q;
+end
+endmodule
+~~~
+
+### RTL LOGIC FOR FLIPFLOPS 
+![rtl dff](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/2eae9090-75b0-4e9e-b20d-6c6022d8511e)
+
+
+### TIMING DIGRAMS FOR FLIP FLOPS 
+![td dff](https://github.com/Rex0n15/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130550796/f319b1b7-638a-4712-98da-6ff4a02ff866)
 
 
 
 ### RESULTS 
+All the flipflops are implementde using verilog and their functionality has been validated using their functional tables.
